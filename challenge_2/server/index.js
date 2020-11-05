@@ -1,11 +1,22 @@
 const Express = require( 'express' );
+const axios = require('axios');
 
 
 const app = Express();
 const PORT = 3000; // relate to env file later....
 
+app.use(Express.urlencoded());
+app.use(Express.json());
 
 app.use( '/', Express.static( '../public') );
+
+app.get( '/test', ( req, res ) => {
+    axios.get( 'https://api.coindesk.com/v1/bpi/historical/close.json' )
+      .then( ( response ) => {
+        res.send( response.data )
+      })
+      .catch( (error)=>console.log('there was an error \n', error))
+})
 
 app.listen( PORT, () => {
   console.log(`Listening on port ${PORT}. . .`)
