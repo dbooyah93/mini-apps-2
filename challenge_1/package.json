@@ -5,7 +5,8 @@
   "main": "client/app.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "fake": "json-server --watch data/db.json"
   },
   "author": "David Boyea",
   "license": "ISC",
@@ -18,6 +19,7 @@
     "@babel/preset-react": "^7.12.5",
     "babel-loader": "^8.1.0",
     "express": "^4.17.1",
+    "json-server": "^0.16.2",
     "nodemon": "^2.0.6",
     "path": "^0.12.7",
     "react": "^17.0.1",
